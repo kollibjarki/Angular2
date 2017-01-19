@@ -1,0 +1,38 @@
+<div class="add-comment input-group"> <!-- Add Comment -->
+    <input class="form-control" placeholder="Add a comment" #comment type="text">
+    <span (click)="addComment(comment)" class="input-group-addon">
+        <a><i class="glyphicon glyphicon-comment"></i></a>  
+    </span>
+</div>
+<div class="comment container">   <!-- Show Comments -->
+    <div class="col-sm-8" *ngFor="let comment of commentService.commentList">
+        <div class="panel panel-white post panel-shadow">
+            <div class="post-heading">
+                <div class="pull-left meta">
+                    <div class="title h5">
+                        <a><b>{{ comment.UserName }}</b></a>
+                        made a comment.
+                    </div>
+                    <h6 class="text-muted">{{ comment.DateAdded | date:'fullDate'}}</h6>
+                </div>
+                <div *ngIf="accountService.Username == comment.UserName || accountService.isAdmin == true">
+                    <span (click)=deleteComment(comment.Id) class="pull-right glyphicon glyphicon-remove"></span>
+                </div>
+            </div> 
+            <div class="post-description"> 
+                <p>{{ comment.Comment }}</p>
+                <div class="stats">
+                    <a  (click)=likeComment(comment.Id) class="btn btn-default stat-item"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                    <a (click)=toggle() class="btn btn-default stat-item"><i class="glyphicon glyphicon-share-alt"></i></a>
+                    <span *ngIf="comment.NumberOfLikes > 0" class="badge numberOfLikes">{{ comment.NumberOfLikes }}</span>
+                </div>
+            </div>
+            <div [hidden]="SubIsClosed" class="add-comment input-group"> <!-- Add Sub Comment -->
+                <input class="form-control" placeholder="Reply" #SubComment type="text">
+                <span (click)="replyComment(comment)" class="input-group-addon">
+                    <a><i class="glyphicon glyphicon-comment"></i></a>  
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

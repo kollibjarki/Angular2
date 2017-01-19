@@ -1,0 +1,30 @@
+.navbar * {
+    font-weight: initial;
+    font-size: 1em;
+}
+.navbar {
+    border-radius: 5px 5px 0 0;
+    margin-bottom: -6em;
+    height: 8em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: margin 300ms ease-out;
+}
+.navbar-nav{
+    padding-left: 16em;
+}
+.footer {
+    padding-top: 2em;
+}
+#logo {
+    font-family: 'Anton', sans-serif;
+    text-shadow: 0 0 5px black;
+    font-size: 3em;
+    width: 100px;
+    margin-top: 0em;
+    margin-left: 2em;
+}
+.navbar:hover {
+    margin-bottom: 0px;
+}

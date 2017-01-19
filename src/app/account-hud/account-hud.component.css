@@ -1,0 +1,70 @@
+.glyphicon {
+    font-size:22px;
+}
+.white{
+    color: white;
+}
+.btn-hoodlm:hover{
+   text-shadow: 0 0 7px white;
+}
+#loggedIn {
+    color: lightskyblue;
+}
+#accountDiv {
+    padding: 10px 10px;
+    border-radius: 0 5px 5px 0;
+}
+.my-hud {
+    margin-top: 60px;
+    position: fixed;
+    z-index: 5;
+}
+nav.sidebar .navbar-nav {
+	position: static;
+	float: none;
+	width: auto;
+	margin-top: 0;
+	background-color: transparent;
+	border: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+nav.sidebar .navbar-collapse, nav.sidebar {
+    padding: 0 0px 0 0px;
+}
+nav.sidebar{
+	width: 200px;
+	height: 100%;
+    margin-left:-160px;
+	float: left;
+	z-index: 8000;
+	margin-bottom: 10px;
+}
+
+nav.sidebar li {
+    width: 100%;
+}
+
+nav.sidebar:hover{
+    margin-left: -20px;
+}
+nav.sidebar:hover .glyphicon{
+    color: white !important;
+}
+
+div > nav > div > ul{
+    width:198px;
+}
+
+nav.sidebar, .main{
+    -webkit-transition: margin 300ms ease-out;
+    -moz-transition: margin 300ms ease-out;
+    -o-transition: margin 300ms ease-out;
+    transition: margin 300ms ease-out;
+}
+@media (max-width: 770px) {
+    .my-hud {
+        display: none;
+    }
+}

@@ -1,0 +1,14 @@
+.menu-item:hover {
+    text-shadow: 0 0 7px white;
+}
+#logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 3em;
+}
+#logo:hover {
+    text-shadow: 0 0 7px grey;    
+}
+#navbar {
+    padding-top: 0.5em;
+    height: 5em;
+}

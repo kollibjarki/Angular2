@@ -1,0 +1,68 @@
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Admin Options</h2>
+    </div>
+</div>
+<div class="row text-center">
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <div class="frame">
+            <img src="https://maxcdn.icons8.com/iOS7/PNG/512/Editing/create_new-512.png" alt="">
+          </div>
+            <div class="caption">
+                <h3>Manage Products</h3>
+                <p>Here you can create, edit or remove existing products.</p>
+                <p>
+                  <a routerLink="/admin/new" class="btn btn-primary">Create</a>
+                  <a routerLink="/admin/items" (click)="getAllProducts()" class="btn btn-primary">Edit/Remove</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <div class="frame">
+            <img src="https://image.freepik.com/free-icon/stock-data-analysis_318-55030.png" alt="">
+          </div>
+            <div class="caption">
+                <h3>View Data</h3>
+                <p>Here you can view product or customer data.</p>
+                <p>
+                  <a href="#" class="btn btn-primary">Product</a>
+                  <a href="#" class="btn btn-primary">Customer</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <div class="frame">
+            <img src="https://image.freepik.com/free-icon/create-account_318-31332.jpg" alt="">
+          </div>
+            <div class="caption">
+                <h3>Accounts</h3>
+                <p>Manage customer and admin accounts.</p>
+                <p>
+                  <a href="#" class="btn btn-primary">Accounts</a>
+                </p>
+            </div>
+        </div>
+    </div>
+     <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <div class="frame">
+            <img src="https://image.freepik.com/free-icon/create-account_318-31332.jpg" alt="">
+          </div>
+            <div class="caption">
+                <h3>Staff</h3>
+                <p>Here you can create, edit or remove existing Staff</p>
+                <p>
+                  <a routerLink="/admin/newStaff" class="btn btn-primary">Create</a>
+                  <a routerLink="/staff" (click)="getAllStaff()" class="btn btn-primary">Edit/Remove</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

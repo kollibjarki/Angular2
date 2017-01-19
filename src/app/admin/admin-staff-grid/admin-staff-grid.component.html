@@ -1,0 +1,19 @@
+<div class="container">
+    <div id="Staff" class="row list-group">
+        <div class="item  col-xs-12 col-lg-4" *ngFor="let staff of staffService.allStaffList">
+            <div class="thumbnail"(click)="editStaff(staff.Id)">
+                <img class="group list-group-image" src="{{ staff.ImageUrl }}" alt="" />
+            </div>
+                
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        {{ staff.Name}}</h4>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

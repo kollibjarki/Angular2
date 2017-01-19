@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand">Blank Store</a>
+        <a (click)="toggle()">
+            <div class="burger">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+        </a>
+    </div>
+    <nav [hidden]="isClosed">
+        <ul class="nav navbar-nav">
+            <li class="menu-item" (click)="toggle()"><a routerLink="/store" routerLinkActive="active">Home</a></li>
+        </ul>
+    </nav>
+  </div>
+</nav>

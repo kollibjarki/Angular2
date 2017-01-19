@@ -1,0 +1,12 @@
+<nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+      <div class="navbar-header">
+        <a id="logo" class="front-color-2 navbar-brand" routerLink="/store">Blank Store</a>
+      </div>
+        <ul class="nav navbar-nav">
+          <li class="menu-item"><a routerLink="/store" routerLinkActive="active"><md-icon>home</md-icon></a></li>
+          <li class="menu-item"><a routerLink="staff" (click)="getAllStaff()">Staff Members</a></li>
+          <li class="menu-item"><a (click)="checkAdmin()">Test Admin</a></li>
+        </ul>
+  </div>
+</nav>

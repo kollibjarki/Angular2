@@ -1,0 +1,23 @@
+.basketImg {
+  width: auto;
+  margin-left: 3em;
+  height: 140px;
+}
+.quantity{
+    position: absolute;
+    bottom: 0;
+}
+.discount {
+    transform: rotate(15deg);
+    position: absolute;
+    margin-top: 10px;
+    color: red;
+}
+.old-price {
+    transform: rotate(-10deg);    
+    position: absolute;
+    z-index: 5;
+    color: red;
+    margin-left: -3em;
+    margin-top: -0.5em;
+}

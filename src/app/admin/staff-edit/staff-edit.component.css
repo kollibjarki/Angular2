@@ -1,0 +1,12 @@
+.glyphicon {
+    font-size: 5em;
+}
+
+#price {
+    width: 6em;
+}
+.detailImg{
+    width: 100%;
+    height: auto;
+    max-height: 38em;
+}

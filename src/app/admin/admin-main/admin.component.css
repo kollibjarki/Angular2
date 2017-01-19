@@ -1,0 +1,7 @@
+img {
+    padding-top: 30px;
+    width: 120px;
+}
+.thumbnail:hover {
+    border: 3px solid lightgray;
+}

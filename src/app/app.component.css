@@ -1,0 +1,8 @@
+.outlet {
+    padding: 50px;
+    margin-left: -70px;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}

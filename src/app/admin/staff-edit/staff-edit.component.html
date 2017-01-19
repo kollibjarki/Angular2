@@ -1,0 +1,98 @@
+<div class="container" *ngIf="accountService.isAdmin == true">
+    <div class="row list-group">
+        <div class="item col-xs-12">
+            <div *ngIf="staffService.staff">
+                <div class="col-md-6 col-xs-12">
+                  <img class="detailImg" src="{{ staffService.staff[0].ImageUrl }}"/>
+                </div>
+                <div class="col-md-6 col-xs-12 caption">
+                    <div class="col-xs-12 col-md-6">
+                    <a (click)="back()" data-toggle="tooltip" title="Go Back"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <h1 class="group inner list-group-item-heading">
+                        <input id="id"  [(ngModel)]="staffService.staff[0].Id" #id/>
+                        <label>Name: </label>
+                        <input id="name" [(ngModel)]="staffService.staff[0].Name" #name/>
+                    </h1>
+                        </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                      <h3 class="group inner list-group-item-heading" >
+                        <label>Jobtitle: </label>
+                        <input id="jobtitle" [(ngModel)]="staffService.staff[0].JobTitle" #jobtitle/>
+                      </h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <h3 class="group inner list-group-item-heading">
+                        <label>Age: </label>
+                        <input id="age" type="number" step="1" [(ngModel)]="staffService.staff[0].Age" #age/>
+                      </h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-md-6">
+                      <h3 class="group inner list-group-item-heading" >
+                        <label>PersonalQuote: </label>
+                        <textarea id="personalQuote" [(ngModel)]="staffService.staff[0].PersonalQuote" #personalQuote></textarea>
+                      </h3>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <h3 class="group inner list-group-item-heading" >
+                        <label>ImageUrl: </label>
+                        <textarea id="imageUrl" [(ngModel)]="staffService.staff[0].ImageUrl" #imageUrl></textarea>
+                      </h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-md-6">
+                        <a (click)="save(id, name, jobtitle, age, personalQuote,  imageUrl)" class="btn btn-success">Save Changes</a>
+                        <a (click)="delete(staffService.staff[0].Id); $event.stopPropagation()" class="btn btn-danger">Delete Staff</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" >
+    <div class="row list-group">
+        <div class="item col-xs-12">
+            <div *ngIf="staffService.staff">
+                <div class="col-md-6 col-xs-12">
+                  <img class="detailImg" src="{{ staffService.staff[0].ImageUrl }}"/>
+                </div>
+                <div class="col-md-6 col-xs-12 caption">
+                    <div class="col-xs-12 col-md-6">
+                    <h1 class="group inner list-group-item-heading">
+                        <label>Name: </label>
+                        {{staffService.staff[0].Name}}
+                    </h1>
+                        </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                      <h3 class="group inner list-group-item-heading" >
+                        <label>Jobtitle: </label>
+                        {{staffService.staff[0].JobTitle}}
+                      </h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <h3 class="group inner list-group-item-heading">
+                        <label>Age: </label>
+                        {{staffService.staff[0].Age}}
+                      </h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-md-6">
+                      <h3 class="group inner list-group-item-heading" >
+                        <label>PersonalQuote: </label>
+                        {{staffService.staff[0].PersonalQuote}} 
+                      </h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-md-6">
+                    <a (click)="back()" data-toggle="tooltip" title="Go Back"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+    <form class="well form-horizontal" method="post">
+            <legend>Create New Product</legend>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Name</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" #name required="required" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Category </label>
+                <div class="input-group">
+                    <select class="form-control" #category>
+                        <option id="cat" *ngFor="let category of productService.categories" [value]="category.Name" >{{category.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Price </label>
+                  <div class="input-group">
+                        <input class="form-control" step="250" type="number" #price required="required" placeholder="Price">
+                  </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Description </label>
+                  <div class="input-group">
+                      <input class="form-control" type="text" #description placeholder="Description">
+                  </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Image Url </label>
+                <div class="input-group">
+                    <input class="form-control" type="text" #imageUrl required="required" placeholder="Image Url">
+                </div>
+            </div>
+            <!-- Buttons -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button (click)="create(name,category,price,description,imageUrl)" class="btn btn-warning">Create</button>
+                    <button (click)="cancel()" class="btn btn-success">Cancel</button>
+                </div>
+            </div>
+    </form>
+</div>
