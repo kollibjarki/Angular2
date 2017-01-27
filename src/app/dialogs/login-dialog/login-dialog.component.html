@@ -1,0 +1,9 @@
+<div id="login" class="container">
+  <md-input-container>
+    <input md-input type="text" #userName id="username" required="required" placeholder="Username" md-maxlength="50"/>
+  </md-input-container><br />
+  <md-input-container>
+    <input md-input type="password" #password id="password" required="required" placeholder="Password" md-maxlength="50" (keyup.enter)="login(userName.value, password.value)"/>
+  </md-input-container><br />
+  <button md-button (click)="login(userName.value, password.value)" class="hud">Login</button>
+</div>

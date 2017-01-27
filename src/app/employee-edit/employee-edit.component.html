@@ -1,0 +1,57 @@
+<div id="StaffE" class="container">
+    <div class="row list-group">
+                    <a (click)="back()" data-toggle="tooltip" title="Go Back"><span class="glyphicon glyphicon-chevron-left"></span></a>
+       
+            <div *ngIf="staffService.staff">
+                <div class="col-md-12 col-xs-12">
+                  <img class="detailImg" src="{{ staffService.staff[0].ImageUrl }}"/>
+                </div>
+                <div class="col-md-12 col-xs-12 caption">
+                    <div class="col-xs-12 col-md-12">
+                    <h3 class="group inner list-group-item-heading">
+                        <input id="id" hidden [(ngModel)]="staffService.staff[0].Id" #id/>
+                        <md-input-container>  
+                          <input md-input placeholder="Staff Name" value="Name" id="name" [(ngModel)]="staffService.staff[0].Name" #name>
+                        </md-input-container>
+                     </h3>
+                        </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                      <h3 class="group inner list-group-item-heading" >
+                        <md-input-container>  
+                          <input md-input placeholder="Jobtitle" id="jobtitle" [(ngModel)]="staffService.staff[0].JobTitle" #jobtitle>
+                        </md-input-container>
+                      </h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                      <h3 class="group inner list-group-item-heading">
+                        <md-input-container>  
+                          <input md-input placeholder="Age" id="age" [(ngModel)]="staffService.staff[0].Age" #age>
+                        </md-input-container>                        
+                      </h3>
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                      <h3 class="group inner list-group-item-heading" >
+                        <md-input-container>  
+                          <textarea md-input placeholder="Quote" id="personalQuote" [(ngModel)]="staffService.staff[0].PersonalQuote" #personalQuote></textarea>
+                        </md-input-container>   
+                      </h3>
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                      <h3 class="group inner list-group-item-heading" >
+                        <md-input-container>  
+                          <input md-input placeholder="Image" id="imageUrl" [(ngModel)]="staffService.staff[0].ImageUrl" #imageUrl>
+                        </md-input-container>   
+                      </h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-md-12">
+                        <a (click)="save(id, name, jobtitle, age, personalQuote,  imageUrl)" class="btn btn-success">Save Changes</a>
+                        <a (click)="delete(staffService.staff[0].Id); $event.stopPropagation()" class="btn btn-danger">Delete Staff</a>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>

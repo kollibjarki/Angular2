@@ -1,0 +1,6 @@
+<button id="info" md-button [mdMenuTriggerFor]="about">Info</button>
+<md-menu #about="mdMenu">
+    <button md-menu-item (click)="openAboutDialog()">About Us</button>
+    <button md-menu-item routerLink="/staff">Staff</button>
+    <button md-menu-item (click)="openContactDialog()">Contact</button>
+</md-menu>

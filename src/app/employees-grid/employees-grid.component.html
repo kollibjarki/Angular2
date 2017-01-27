@@ -1,0 +1,10 @@
+<div class="fam">
+    <h2>Our Staff</h2>
+    <div class="mother">
+        <div class="child" *ngFor="let employee of staffService.allStaffList">
+            <p class="jobTitle">{{ employee.JobTitle }}</p>
+            <img (click)="staffDetail(employee.Id)" class="img-responsive" src="{{ employee.ImageUrl }}">
+            <p class="heading">{{ employee.Name | uppercase }}</p>
+        </div>
+    </div>
+</div>

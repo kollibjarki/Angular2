@@ -1,0 +1,32 @@
+<md-dialog-content id="main">
+  <div class="section section-breadcrumbs">
+    <div class="container">
+      <div class="row">
+          <h1 class="title hudd">Inactive Products</h1>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="shopping-cart">
+            <tr class="product" *ngFor="let product of valueService.inactiveList">
+              <td class="image"><img src="{{ product.ImageUrl }}" alt="Item Name"></td>
+              <td>
+                <div class="cart-item-title">{{ product.Name}}</div>
+              </td>
+              <td class="quantity">
+                Views: <b>{{ product.Views }}</b>
+              </td>
+              <td class="price">{{ product.CategoryName }}</td>
+              <td class="actions">
+                <a (click)="activeProduct(product.Id)" class="btn btn-md hud">Activate</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<md-dialog-content>

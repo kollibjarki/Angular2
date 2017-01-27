@@ -1,0 +1,30 @@
+<h1 class="hudd">Your Orders</h1>
+<h2 class="sub-heading">Please Be Many Many Patient</h2>
+<section class="shopping-cart" *ngIf="valueService.numberOfOrders > 0">
+  <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
+    <div id="shopping-cart--list-item-template" type="text/template" *ngFor="let order of valueService.orderList">
+      <li class="_grid shopping-cart--list-item">
+        <div class="_column product-image">
+          <img class="product-image--img" src="{{ order.ImageUrl }}" alt="Item image" />
+        </div>
+        <div class="_column product-info" (click)="productDetail(order.Id)">
+          <h4 class="product-name">{{ order.Name }}</h4>
+          <p class="product-desc">
+			Ordered {{ order.DateOrdered | date:short }}
+          	Estimated time of delivery {{ order.DeliveryDate | date:short }} 
+		  </p>
+          <div class="price product-single-price">{{ order.TotalPrice | number:'1.0-0' }}</div>
+        </div>
+        <div id="side" class="_column product-modifiers">
+          <div class="_grid">
+  	        <div class="_column product-qty">Qty: {{ order.Quantity }}</div>
+		  </div>
+        </div>
+      </li>
+    </div>
+  </ol>
+</section>
+<section class="announcement" *ngIf="valueService.numberOfOrders == 0">
+  <h1 class="hudd">Nothing to see here, move along...</h1>
+  <h2 class="sub-heading">(No orders to show)</h2>    
+</section>

@@ -1,0 +1,12 @@
+<app-categories-small-burger></app-categories-small-burger>
+<app-categories-small></app-categories-small>
+<div class="fam">
+  <div class="mother">
+    <div class="child" *ngFor="let product of valueService.selectedCategoryList">
+      <img src="{{ product.ImageUrl }}" (click)="productDetail(product.Id)" alt="https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg" />
+      <h4 class="heading">{{ product.Name}}</h4>
+      <h4 class="noticeable" *ngIf="valueService.selectedCategoryName == 'on sale'"> -{{ product.Discount }}% </h4>
+      <h4 class="noticeable" *ngIf="valueService.selectedCategoryName == 'popular'">{{ product.Views }} views</h4>
+    </div>
+  </div>
+</div>

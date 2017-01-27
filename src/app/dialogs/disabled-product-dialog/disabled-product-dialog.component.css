@@ -1,0 +1,90 @@
+#main{
+    overflow-x: hidden;
+}
+.title{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.shopping-cart {
+  margin: 10px auto 0 auto;
+  width: 80%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+.shopping-cart a {
+  color: #535b60;
+}
+.shopping-cart tr {
+  background: #FFF;
+}
+.shopping-cart td {
+  padding: 10px;
+}
+.shopping-cart td:first-child {
+  -webkit-border-radius: 5px 0 0 5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px 0 0 5px;
+  -moz-background-clip: padding;
+  border-radius: 5px 0 0 5px;
+  background-clip: padding-box;
+  margin-left: 10px;
+}
+.shopping-cart td:last-child {
+  -webkit-border-radius: 0 5px 5px 0;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0 5px 5px 0;
+  -moz-background-clip: padding;
+  border-radius: 0 5px 5px 0;
+  background-clip: padding-box;
+  margin-right: 10px;
+}
+.shopping-cart .image,
+.shopping-cart .image img {
+  max-width: 150px;
+}
+.shopping-cart .cart-item-title {
+  width: fit-content;
+  font-size: 3em;
+  font-family: 'Merriweather', serif;
+}
+.shopping-cart .quantity {
+  width: 80px;
+}
+.shopping-cart .price {
+  color: #535b60;
+  font-size: 1.2em;
+  width: 80px;
+  text-align: center;
+}
+@media (max-width: 500px) {
+  .shopping-cart .image {
+    display: none;
+  }
+  .cart-item-title {
+    font-size: 1em;
+  }
+}
+
+/*------------------------------------------*/
+h1, h2, h3, h4, h5, h6 { font-weight: 400;}
+h1, .sub-heading {
+  margin-top: 6em;
+  text-align: center;
+  margin: .5rem 0 1rem;
+}
+.sub-heading {
+  font-size: .75em;
+  font-weight: 300;
+}
+._column {
+  	display: inline-block;
+  	vertical-align: top;
+  	font-size: medium;
+  	text-align: left;
+  	text-rendering: optimizeLegibility;
+}
+
+.shopping-cart .product:hover{
+  box-shadow: 0 0 0 2px gray;
+}

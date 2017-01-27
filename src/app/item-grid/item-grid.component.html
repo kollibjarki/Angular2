@@ -1,0 +1,24 @@
+<app-categories-small-burger></app-categories-small-burger>
+<app-categories-small></app-categories-small>
+<div class="section">
+  <div class="container">
+	  <div class="row">
+		  <div class="col-sm-4" *ngFor="let product of valueService.selectedCategoryList">
+				<div class="shop-item">
+					<div class="image">
+						<a (click)="productDetail(product.Id)"><img src="{{ product.ImageUrl }}" alt="Item Name"></a>
+					</div>
+					<div class="title">
+						<h3><a href="page-product-details.html">{{ product.Name}}</a></h3>
+					</div>
+					<div class="price">
+						<span *ngIf="product.Price != product.DiscPrice" class="price-was">{{ product.Price }}</span>
+            {{ product.DiscPrice }} kr.
+					</div>
+          <h4 class="noticeable" *ngIf="valueService.selectedCategoryName == 'on sale'"> -{{ product.Discount }}% </h4>
+          <h4 class="noticeable" *ngIf="valueService.selectedCategoryName == 'popular'">{{ product.Views }} views</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

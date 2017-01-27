@@ -1,16 +1,9 @@
 <div id="small">
   <div class="well well-sm">
-    <div class="btn-group">
-      <div class="btn btn-hoodlm" *ngFor="let category of productService.categories">
-        <div (click)="smallGoToCategory(category.Name)">{{ category.Name }}</div>
-      </div>
-    </div>
-    <div class="btn-group">
-      <div class="btn btn-hoodlm">
-        <div (click)="sale()">On Sale</div>        
-      </div>
-      <div class="btn btn-hoodlm">
-        <div (click)="popular()">Popular</div>
-      </div>
+        <div class="btn" *ngFor="let category of valueService.categories" 
+            (click)="goToCategory(category.Name)">{{ category.Name }}
+        </div>
+        <div class="btn" (click)="goToOnSale()">On Sale</div>        
+        <div class="btn" (click)="goToPopular()">Popular</div>
   </div>
 </div>

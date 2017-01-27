@@ -1,0 +1,10 @@
+.detailImg{
+    width: auto;
+    height: 100%;
+    max-height: 38em;
+    padding-bottom: 10px;
+}
+#personalQuote{
+    width: fit-content;
+    min-height: 50px;
+}

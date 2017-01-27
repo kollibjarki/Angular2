@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row list-group">
+        <div class="item col-xs-12">
+            <div class="col-md-6">
+                <img class="detailImg" src="{{ imageUrl.value }}"/>   
+            </div>
+            <div class="col-md-6 caption">
+                <div class="row">
+                    <div class="col-xs-7">
+                    <h4>Name</h4>
+                    <md-input-container>
+                        <input class="product-name" md-input type="text" #name required="required" placeholder="Name">
+                    </md-input-container>
+                    <h4>Category :</h4>
+                    <select id="cat" class="form-control" #category>
+                        <option id="cat" *ngFor="let category of productService.categories" [value]="category.Name">
+                          {{category.Name}}
+                        </option>
+                    </select>
+                    </div>
+                    <div class="col-xs-5">
+                        <h4>Price</h4>
+                        <md-input-container>
+                            <input step="250" md-input #price type="number" min="250" #price required="required" placeholder="Price">
+                        </md-input-container>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+
+                    <h4>Image</h4>                        
+                    <md-input-container class="col-xs-12">
+                      <textarea md-input type="text" #imageUrl required="required" placeholder="Image Url"></textarea>
+                    </md-input-container>  
+
+                    <h4>Description</h4>                        
+                    <md-input-container id="textarea" class="col-xs-12">
+                      <textarea class="description" md-input  type="text" #description placeholder="Description"></textarea>
+                    </md-input-container>
+                    <div class="clearfix">
+                    </div>
+                    <div class="wrap">
+                        <div class="col-xs-12">
+                            <button class="hud" (click)="create(name,category,price,description,imageUrl)" class="btn btn-warning">Create</button>
+                            <button class="hud" md-dialog-close class="btn btn-warning">Cancel</button>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="searchDiv col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <md-input-container>  <!-- Search -->
+      <input md-input placeholder="Search Store" (blur)="onBlur()" [(ngModel)]="searchTerm" type="text">
+    </md-input-container>
+    <ul>
+      <li *ngFor="let product of valueService.searchList | search:searchTerm">
+        <span (click)="gotoDetail(product.Id)" class="search-result">{{product.Name}}</span>
+      </li> 
+    </ul>
+</div>

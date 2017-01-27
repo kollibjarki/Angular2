@@ -1,8 +1,14 @@
 .add-comment{
   margin: 1em 1em; 
 }
+md-input-container{
+  width: 90%;
+}
 .comment{
   width: 150%;
+}
+input:hover{
+  cursor: pointer;
 }
 .numberOfLikes{
   margin-left: -1em;
@@ -35,7 +41,7 @@
   font-size: 14px;
 }
 .post .post-description .stats {
-  margin-top: 20px;
+  margin-top: -20px;
 }
 .post .post-description .stats .stat-item {
   display: inline-block;

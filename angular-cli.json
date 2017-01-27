@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.22-1",
-    "name": "retail-angular"
+    "version": "1.0.0-beta.25.5",
+    "name": "new-angular"
   },
   "apps": [
     {

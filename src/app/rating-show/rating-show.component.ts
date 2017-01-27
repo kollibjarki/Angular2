@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { Component } from '@angular/core';
+import { ValueService } from '../shared/value.service';
 
 @Component({
   selector: 'app-rating-show',
   templateUrl: './rating-show.component.html',
   styleUrls: ['./rating-show.component.css']
 })
-export class RatingShowComponent implements OnInit {
+export class RatingShowComponent {
 
   constructor(
-    private productService: ProductService
+    private valueService: ValueService
   ) { }
-
-  ngOnInit() {
-  }
 
 }

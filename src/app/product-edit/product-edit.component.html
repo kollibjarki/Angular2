@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row list-group">
+        <div class="item col-xs-12">
+            <div *ngIf="product">
+                <div class="col-md-6 col-xs-12">
+                    <img class="detailImg" src="{{ product.ImageUrl }}" alt="https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg"/>
+                <app-rating-show></app-rating-show>      
+                </div>
+                <div class="col-md-6 col-xs-12 caption">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-7">
+                          <input hidden #id [(ngModel)]="product.Id" />
+                          <md-input-container>
+                            <input class="product-name" md-input placeholder="Name" value="{{ product.Name}}" #name type="text">
+                          </md-input-container>
+                          <h4>Category :</h4>
+                          <select class="form-control" #categoryId [(ngModel)]="product.CategoryId">
+                            <option id="cat" *ngFor="let category of productService.categories" [value]="category.Id">
+                              {{category.Name}}
+                            </option>
+                          </select>
+                        </div>
+                        <div class="col-xs-12 col-md-5">
+                            <h4>Price</h4>
+                            <md-input-container>
+                              <input value="{{ product.Price }}" step="250" md-input #price type="number" [(ngModel)]="product.Price">
+                            </md-input-container>
+                            <h4>Discount</h4>
+                            <md-slider type="number" #discount [(ngModel)]="product.Discount" step="5" value="product.Discount" max="90"></md-slider>
+                            <h2 class="discount"> {{ product.Discount }}% </h2>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                        <h4>Description</h4>                        
+                        <md-input-container id="textarea" class="col-xs-12 col-md-12">
+                          <textarea class="description" md-input #description type="text">{{ product.Description}}</textarea>
+                        </md-input-container>
+                        <h4>Image</h4>                        
+                        <md-input-container class="col-xs-12 col-md-12">
+                          <textarea md-input #imgUrl type="text" [(ngModel)]="product.ImageUrl"></textarea>
+                        </md-input-container>                     
+                        <div class="clearfix">
+                        </div>
+                        <div class="wrap">
+                            <div class="col-xs-12 col-md-6">
+                                <button class="btn btn-info" (click)="save(id, name, categoryId, price, imgUrl, description, discount)">Save</button>
+                                <button class="btn btn-info" (click)="cancel(id)">Cancel</button>
+                                <button class="btn btn-danger" (click)=disable(product.Id)>Disable</button>
+                            </div>
+                        </div>                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

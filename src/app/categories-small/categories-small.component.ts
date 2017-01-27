@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../shared/product.service';
+import { ValueService } from '../shared/value.service';
 
 @Component({
   selector: 'app-categories-small',
@@ -9,20 +10,24 @@ import { ProductService } from '../product.service';
 export class CategoriesSmallComponent implements OnInit {
 
   constructor(
-    private productService : ProductService
+    private productService : ProductService,
+    private valueService : ValueService
   ) { }
 
   ngOnInit() {
-  }
-  smallGoToCategory(category){
-    this.productService.getProductList(category);
-    this.productService.toCategoryGrid(category);
-  }
-  popular(){
-    this.productService.toPopular();
-  }
-  sale(){
-    this.productService.toSale();
+    this.productService.getCategories();
   }
 
+  goToCategory(category){
+    this.productService.getProductList(category);
+  }
+
+  goToOnSale(){   
+    this.productService.getOnSaleProducts();
+  }
+  
+  goToPopular(){   
+    this.productService.getPopularProducts();
+  }
+  
 }

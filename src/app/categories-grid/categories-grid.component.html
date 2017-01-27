@@ -1,0 +1,18 @@
+<app-categories-small-burger></app-categories-small-burger>
+<app-categories-small></app-categories-small>
+<div class="fam">
+    <div class="mother">
+        <div class="child" *ngFor="let category of valueService.categories">
+            <img (click)="goToCategory(category.Name)" class="img-responsive" src="{{ category.ImageUrl}}">
+            <p class="heading">{{ category.Name | uppercase }}</p>
+        </div>
+        <div class="child">
+            <img (click)="goToOnSale()" class="img-responsive" src="http://cdn.picturecorrect.com/wp-content/uploads/2013/06/concert-photography-21.jpg">
+            <p class="heading">On Sale</p>
+        </div>
+        <div class="child">
+            <img (click)="goToPopular()" class="img-responsive" src="https://www.teenageengineering.com/_img/546e797ecb05790200e70bab_512.jpg">
+            <p class="heading">Popular</p>
+        </div>
+    </div>
+</div>

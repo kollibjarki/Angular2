@@ -1,0 +1,43 @@
+.fam {
+    padding: 2em;
+    color:white;
+    font-size: xx-large;
+    text-align: center;
+}
+.mother {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-end; 
+    height: auto;
+}
+.child {
+    width: 380px;
+    height: auto;
+    overflow: hidden;
+    margin: 20px auto;
+    align-self: flex-start;
+}
+.child:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+.child > img {
+    width: 300px;
+    height: auto;
+    vertical-align: top;
+}
+.noticeable{
+    font-size: 20px;
+    margin: 0 0;
+    transform: rotate(5deg);
+    color: red;
+}
+.heading{
+    font-size: 35px;
+    margin: 0 0;
+    color: grey;
+}
+.heading:hover{
+    cursor: default;
+}

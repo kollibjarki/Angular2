@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DialogService } from '../shared/dialog.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  constructor() { }
+  constructor(
+    private dialogService: DialogService
+  ) { }
 
-  ngOnInit() {
+  openAboutDialog(){
+    this.dialogService.openAboutDialog();
+  }
+
+  openContactDialog(){
+    this.dialogService.openContactDialog();
   }
 
 }

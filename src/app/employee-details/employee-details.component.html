@@ -1,0 +1,38 @@
+<div id="StaffD" class="container" >
+    <div class="row">
+        <div class="item col-xs-12 col-md-12">
+            <div *ngIf="staffService.staff">
+                <div class="col-md-12 col-xs-12">
+                  <img class="detailImg" src="{{ staffService.staff[0].ImageUrl }}"/>
+                </div>
+                    <div class="col-xs-12 col-md-12">
+                        <md-card class="md" hidden>
+                        </md-card>
+                            <md-card-title><b>Name: </b></md-card-title>
+                        <h3><md-card-content>{{staffService.staff[0].Name}}</md-card-content></h3>
+                      </div>
+                    <div class="col-xs-12 col-md-12">
+                        <md-card-title><b>Job: </b></md-card-title>
+                      <h3> <md-card-content>{{staffService.staff[0].JobTitle}}</md-card-content></h3>   
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        <md-card-title><b>Age: </b></md-card-title>
+                      <h3><md-card-content>{{staffService.staff[0].Age}}</md-card-content></h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-md-12">
+                        <md-card-title><b>Quote: </b></md-card-title>
+                       <h3><md-card-content>{{staffService.staff[0].PersonalQuote}}</md-card-content></h3>                          
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-md-12">
+                      <a (click)="goBack()" data-toggle="tooltip" title="Go Back"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <div class="BF" *ngIf="valueService.isAdminLoggedIn.value == true">
+                      <a (click)="edit(staffService.staff[0].Id)" class="btn btn-primary">Edit/Remove</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

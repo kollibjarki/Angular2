@@ -1,0 +1,10 @@
+<div class="burger" (click)="toggle()">
+  <span class="glyphicon glyphicon-align-justify"></span>
+</div>
+<nav [hidden]="isClosed">
+  <ul class="nav navbar-nav" (click)="toggle()">
+      <li class="menu-item" *ngFor="let category of valueService.categories"><a (click)="goToCategory(category.Name)">{{ category.Name }}</a></li>
+      <li class="menu-item"><a (click)="goToOnSale()">On Sale</a></li>
+      <li class="menu-item"><a (click)="goToPopular()">Popular</a></li>
+  </ul>
+</nav>

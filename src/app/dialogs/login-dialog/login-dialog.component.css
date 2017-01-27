@@ -1,0 +1,11 @@
+#login *{
+    font-size: 28px;
+}
+#login{
+    width: fit-content;
+    height: 180%;
+    overflow-x: hidden;
+}
+.container{
+    padding: 20px;
+}

@@ -1,0 +1,39 @@
+.detailImg{
+    width: 100%;
+    height: auto;
+    max-height: 48em;
+    max-width: 100%;
+    margin-top: 3em;
+}
+@media (max-width: 1100px){
+    .detailImg{
+        width: 80%;
+    }
+}
+.product-name{
+    font-family: 'Merriweather', serif;
+    height: 2.5em;
+    font-weight: bold;
+    font-size: 2em;
+}
+.glyphicon{
+    font-size: 5em;
+}
+.discount {
+    color: red;
+}
+.old-price {
+    transform: rotate(-10deg);    
+    position: absolute;
+    z-index: 5;
+    color: red;
+    margin-left: -3em;
+    margin-top: -0.5em;
+}
+.description {
+    height: 150px;
+    padding: 15px 10px;
+}
+.wrap {
+    width: 80%;
+}

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BasketService } from '../basket.service';
-import { AccountService } from '../account.service';
-import { ProductService } from '../product.service';
+import { BasketService } from '../shared/basket.service';
+import { ValueService } from '../shared/value.service';
+import { ProductService } from '../shared/product.service';
+import { GlobalService } from '../shared/global.service';
+import { OrdersService } from '../shared/orders.service';
 
 @Component({
   selector: 'app-basket',
@@ -12,25 +14,34 @@ export class BasketComponent implements OnInit {
 
   constructor(
     private basketService : BasketService,
-    private accountService : AccountService,
-    private productService : ProductService
+    private globalService : GlobalService,
+    private valueService : ValueService,
+    private productService : ProductService,
+    private ordersService : OrdersService
   ) { }
 
   ngOnInit() {
+    if(this.valueService.isAdminLoggedIn.value == true){
+      this.globalService.redirect();
+    }
   }
-  numberOfItems:number;
+
   productDetail(productId: number){
-    this.productService.toProductDetails(productId);
     this.productService.getProduct(productId);
   }
-  remove(product, productId){
-    this.basketService.removeFromBasket(product, productId);
+  
+  addToBasket(product, productId){
+    let qty = 1;
+    this.basketService.addToBasket(product, productId, qty);
   }
-  addToCart(product, productId){
-    this.basketService.addToBasket(product, productId);
+
+  removeFromBasket(product, productId){
+    this.basketService.removeOneFromBasket(product, productId);
   }
-  emptyBasket(){
-    this.basketService.emptyBasket();
+
+  removeItem(product, productId){
+    this.basketService.removeItemFromBasket(product, productId);
   }
+  
 
 }

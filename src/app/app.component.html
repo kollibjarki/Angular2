@@ -1,9 +1,14 @@
-<app-account-hud></app-account-hud>
-<app-navbar></app-navbar>
-<app-navburger></app-navburger>
-<div class="container">
-    <div class="outlet">
+<button class="hud" id="open-menu-button" md-button (click)="sidenav.open()">Menu</button>
+<app-account-tab></app-account-tab>
+<app-search-bar></app-search-bar>
+<md-sidenav-container class="main-container">
+    <app-logo style="font-size:80px;"></app-logo>
+    <md-sidenav mode="push" #sidenav class="sidenav">
+        <app-menu></app-menu>
+    </md-sidenav>
+    <div class="app-content">
         <router-outlet></router-outlet>
     </div>
-</div>
+</md-sidenav-container>
+<app-basket-preview></app-basket-preview>
 <app-footer></app-footer>

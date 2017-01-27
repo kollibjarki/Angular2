@@ -1,8 +1,7 @@
-<div class="add-comment input-group"> <!-- Add Comment -->
-    <input class="form-control" placeholder="Add a comment" #comment type="text">
-    <span (click)="addComment(comment)" class="input-group-addon">
-        <a><i class="glyphicon glyphicon-comment"></i></a>  
-    </span>
+<div class="col-sm-12 add-comment input-group"> <!-- Add Comment -->
+    <md-input-container>
+        <input md-input placeholder="Add a comment" (keyup.enter)="addComment(comment)"  #comment type="text">
+    </md-input-container>
 </div>
 <div class="comment container">   <!-- Show Comments -->
     <div class="col-sm-8" *ngFor="let comment of commentService.commentList">
@@ -10,28 +9,43 @@
             <div class="post-heading">
                 <div class="pull-left meta">
                     <div class="title h5">
-                        <a><b>{{ comment.UserName }}</b></a>
+                        <a><b>{{ comment.UserId }}</b></a>
                         made a comment.
                     </div>
-                    <h6 class="text-muted">{{ comment.DateAdded | date:'fullDate'}}</h6>
+                    <h6 class="text-muted">{{ comment.DateSubmitted | date:'fullDate'}}</h6>
                 </div>
-                <div *ngIf="accountService.Username == comment.UserName || accountService.isAdmin == true">
+                <div *ngIf="valueService.user.userName == comment.UserId || valueService.isAdminLoggedIn.value == true">
                     <span (click)=deleteComment(comment.Id) class="pull-right glyphicon glyphicon-remove"></span>
                 </div>
             </div> 
             <div class="post-description"> 
                 <p>{{ comment.Comment }}</p>
-                <div class="stats">
+                <div class="stats pull-right">
                     <a  (click)=likeComment(comment.Id) class="btn btn-default stat-item"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                    <a (click)=toggle() class="btn btn-default stat-item"><i class="glyphicon glyphicon-share-alt"></i></a>
                     <span *ngIf="comment.NumberOfLikes > 0" class="badge numberOfLikes">{{ comment.NumberOfLikes }}</span>
                 </div>
+                <md-input-container>  <!-- Add Sub Comment -->
+                    <input md-input placeholder="Reply" (keyup.enter)="replyComment(comment.Id, SubComment)" #SubComment type="text">
+                </md-input-container>
             </div>
-            <div [hidden]="SubIsClosed" class="add-comment input-group"> <!-- Add Sub Comment -->
-                <input class="form-control" placeholder="Reply" #SubComment type="text">
-                <span (click)="replyComment(comment)" class="input-group-addon">
-                    <a><i class="glyphicon glyphicon-comment"></i></a>  
-                </span>
+        </div>
+        <div class="col-sm-10" *ngFor="let subcomment of comment.SubCom"> <!-- Sub Comments -->
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a><b>{{ subcomment.UserId }}</b></a>
+                            replied to <a><b>{{ comment.UserId }}</b></a> comment.
+                        </div>
+                        <h6 class="text-muted">{{ subcomment.DateSubmitted | date:'fullDate'}}</h6>
+                    </div>
+                    <div *ngIf="valueService.user.userName == subcomment.UserId || valueService.isAdminLoggedIn.value ">
+                        <span (click)=deleteSubComment(subcomment.Id) class="pull-right glyphicon glyphicon-remove"></span>
+                    </div>                   
+                </div>
+                <div class="post-description"> 
+                    <p>{{ subcomment.Comment }}</p>
+                </div>
             </div>
         </div>
     </div>

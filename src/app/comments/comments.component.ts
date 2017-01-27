@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { CommentService } from '../comment.service';
-import { AccountService } from '../account.service';
+import { CommentService } from '../shared/comment.service';
+import { ValueService } from '../shared/value.service';
 
 @Component({
   selector: 'app-comments',
@@ -9,37 +9,43 @@ import { AccountService } from '../account.service';
 })
 export class CommentsComponent implements OnInit {
 
+
   constructor(
     private commentService: CommentService,
-    private accountService: AccountService
+    private valueService: ValueService
   ) { }
   @Input() SubIsClosed = false;
   @Output() opened = new EventEmitter();
   @Output() closed = new EventEmitter();
 
   ngOnInit() {
-    this.commentService.getComments();
+    
   }
 
   toggle() {
-
+    this.SubIsClosed = !this.SubIsClosed
   }
 
   addComment(comment){
-    let com = comment.value;
-    this.commentService.commentOnProduct(com);
+    this.commentService.commentOnProduct(comment.value);
+    comment.value = "";
   }
 
-  replyComment(id: number){
-    
+  replyComment(Id: number, SubComment){
+    this.commentService.replyToComment(Id, SubComment.value);
+    SubComment.value = "";
   }
 
   deleteComment(id: number){
     this.commentService.deleteComment(id);
   }
   
+  deleteSubComment(Id: number){
+    this.commentService.deleteSubComment(Id);
+  }
+
   likeComment(commentId){
     this.commentService.likeComment(commentId);
   }
-
+  
 }

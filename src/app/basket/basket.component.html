@@ -1,52 +1,91 @@
-<div class="row">
-    <app-categories-small></app-categories-small>
-</div>
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="white col-lg-3 col-md-3 col-sm-3 col-xs-3">
-        <h1 *ngIf="accountService.userName != ''">{{ accountService.userName }}'s Basket </h1>
-        <h1 *ngIf="accountService.userName == ''">Guest Basket </h1>
-      <div *ngIf="basketService.numberOfItemsInBasket !== 0">
-        <h3 class="active2" style="text-align:right"> {{ basketService.numberOfItemsInBasket }} items</h3>
-        <div>
-            <h3>Total Price :</h3>
-            <div class="clearfix"></div>
-            <h3 class="active2" style="text-align:right">{{ basketService.basketTotalPrice | number:'1.0-0' }} kr.</h3>
-            <button class="pull-right btn btn-success">Check Out</button>
-            <button (click)="emptyBasket()" class="pull-right btn btn-danger">Empty Basket</button>
+<div *ngIf="valueService.numberOfItemsInBasket > 0">
+  <div class="section section-breadcrumbs">
+    <div class="container">
+      <div class="row">
+          <h1 class="title hudd">Shopping Cart</h1>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="shopping-cart">
+            <tr class="product" *ngFor="let product of valueService.Basket">
+              <td class="image" (click)="productDetail(product.Id)"><img src="{{ product.ImageUrl }}" alt="Item Name"></td>
+              <td>
+                <div class="cart-item-title" (click)="productDetail(product.Id)">{{ product.Name}}</div>
+                <div *ngIf="product.Price != product.DiscPrice" class="feature itemPrice">
+                  Full Price: <del>{{ product.Price | number:'1.0-0' }}</del>
+                </div>
+                <div class="feature">Price: <b>{{ product.DiscPrice | number:'1.0-0' }}</b></div>
+              </td>
+              <td class="quantity">
+                Qty: <b>{{ product.Quantity }}</b>
+              </td>
+              <td class="price">{{ product.TotalPrice | number:'1.0-0' }}</td>
+              <td class="actions">
+                <a (click)="addToBasket(product, product.Id); $event.stopPropagation()" class="btn btn-sm"><i class="glyphicon glyphicon-plus"></i></a>
+                <a (click)="removeFromBasket(product, product.Id); $event.stopPropagation()" class="btn btn-sm"><i class="glyphicon glyphicon-minus"></i></a>
+                <a (click)="removeItem(product, product.Id); $event.stopPropagation()" class="btn btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 col-md-offset-2">
+          <div class="col-md-6">
+            <div class="cart-promo-code">
+              <h6><i class="glyphicon glyphicon-gift"></i> Have a promotion code?</h6>
+              <div class="input-group">
+                <input class="form-control input-sm" id="appendedInputButton" type="text" value="">
+                <span class="input-group-btn">
+                  <button class="btn btn-sm btn-grey" type="button">Apply</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">            
+            <div class="cart-shippment-options">
+              <h6><i class="glyphicon glyphicon-plane"></i> Shippment options</h6>
+              <div class="input-append">
+                <select class="form-control input-sm">
+                  <option value="1">Standard - FREE</option>
+                  <option value="2">Next day delivery - $10.00</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <table class="cart-totals">
+            <footer class="_grid cart-totals">
+              <div class="calc _column shipping">
+                <div class="cart-totals-key">Items</div>
+                <div class="cart-totals-value">{{ valueService.numberOfItemsInBasket }}</div>
+              </div>
+              <div class="calc _column subtotal">
+                <div class="cart-totals-key">Subtotal</div>
+                <div class="cart-totals-value">{{ valueService.basketSubTotal | number:'1.0-0' }}</div>
+              </div>
+              <div class="calc _column taxes">
+                <div class="cart-totals-key">VSK (24%)</div>
+                <div class="cart-totals-value">{{ valueService.totalVSK | number:'1.0-0' }}</div>
+              </div>
+              <div class="calc _column total">
+                <div class="cart-totals-key">Total</div>
+                <div class="cart-totals-value">{{ valueService.basketTotalPrice | number:'1.0-0' }}</div>
+              </div>
+              <div class="_column checkout">
+                <button class="_btn checkout-btn entypo-forward">Checkout</button>
+              </div>
+            </footer>
+          </table>
         </div>
       </div>
     </div>
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-        <div *ngIf="accountService.userName != '' && basketService.numberOfItemsInBasket === 0">
-            <h1 class="white">WTF {{ accountService.userName }}! Your basket is empty!</h1>
-            <button class="btn btn-success" routerLink="/store">Back To Store</button>
-        </div>
-        <div *ngIf="accountService.userName == '' && basketService.numberOfItemsInBasket === 0">
-            <h1 class="white">Your basket is empty!</h1>
-            <button class="btn btn-success" routerLink="/store">Back To Store</button>
-        </div>
-        <ul class="list-group">
-            <li class="list-group-item" *ngFor="let product of basketService.itemsInBasket">
-                <div class="row" (click)="productDetail(product.Id)">
-                <div class="col-md-4">
-                     <h3 *ngIf="product.Quantity > 1" class="quantity">{{ product.Quantity }} x </h3> 
-                <img class="basketImg " src="{{ product.ImageUrl }}">
-                </div>
-                <div class="col-md-4">
-                    <h4>{{ product.Name}}</h4>
-                    <h4 class="discount" *ngIf="product.Discount > 0"> -{{ product.Discount }}% </h4>
-                </div>
-                <div class="col-md-4">
-                    <span >{{ product.Price | number:'1.0-0' }}</span>
-                    <span *ngIf="product.Discount > 0"><span class="old-price">_____</span>
-                                {{ product.DiscPrice | number:'1.0-0' }}</span> kr.<br />
-                    <span class="btn-xs btn btn-danger" (click)="remove(product, product.Id); $event.stopPropagation()">x</span>
-                    <span class="btn-xs btn btn-success" (click)="addToCart(product, product.Id); $event.stopPropagation()">+</span>
-                    <h3 class="active2"> Total Price <br /> {{ product.TotalPrice }} </h3>
-                </div>
-                </div>      
-            </li>
-        </ul> 
-    </div>
+  </div>
 </div>
-
+<section class="announcement" *ngIf="valueService.numberOfItemsInBasket == 0">
+  <h1 class="hudd">Nothing to see here, move along...</h1>
+  <h2 class="sub-heading">(basket empty)</h2>    
+</section>

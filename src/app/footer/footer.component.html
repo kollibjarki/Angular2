@@ -1,11 +1,22 @@
-<footer class="navbar navbar-inverse navbar-fixed-bottom">
-  <div class="footer">
-    <div class="navbar-header">
-        <a id="logo" class="front-color-2 navbar-brand" routerLink="/store">Blank Store</a>
-    </div>
-      <ul class="nav navbar-nav">
-        <li class="menu-item"><a routerLink="/store" routerLinkActive="active">Contact</a></li>
-        <li class="menu-item"><a >About Us</a></li>
-      </ul>
-  </div>
+<footer class="footer-distributed navbar navbar-inverse navbar-fixed-bottom">
+			<div class="footer-left">
+				<app-logo class="logo"></app-logo>
+			</div>
+			<div class="footer-center">
+				<div>
+					<p><span>Hlíðarmsári 5</span> Reykjavík, Iceland</p>
+				</div>
+				<div>
+					<p>+354 555 1234</p>
+				</div>
+				<div>
+          <p><button md-menu-item (click)="openContactDialog()">Contact</button></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span id="about" (click)="openAboutDialog()">About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+			</div>
 </footer>

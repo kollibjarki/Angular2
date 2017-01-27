@@ -1,0 +1,15 @@
+<div id="register" class="container">
+  <md-input-container>
+    <input md-input type="text" #email required placeholder="Email" md-maxlength="50"/>
+  </md-input-container><br />
+  <md-input-container>
+    <input md-input type="text" #userName id="username" required placeholder="Pick Username" md-maxlength="50"/>
+  </md-input-container><br />
+  <md-input-container>
+    <input md-input type="password" #password id="password" required placeholder="Pick Password" md-maxlength="50"/>
+  </md-input-container><br />
+  <md-input-container>
+    <input md-input type="password" #confirmPassword required placeholder="Confirm Password" md-maxlength="50"/>
+  </md-input-container><br />
+  <button md-button (click)="registerNew(email, userName, password, confirmPassword)" class="hud">Register</button>
+</div>

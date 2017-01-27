@@ -4,8 +4,8 @@
 }
 .navbar {
     border-radius: 5px 5px 0 0;
-    margin-bottom: -6em;
-    height: 8em;
+    margin-bottom: -10em;
+    height: 12em;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -14,17 +14,109 @@
 .navbar-nav{
     padding-left: 16em;
 }
+#about:hover{
+	cursor: pointer;
+}
+.logo{ /* Fyrir AppLogo */
+    font-size: 40px !important;
+    color: white;
+    margin-left: 50px;
+}
+@media(max-width:720px){
+	.logo{
+    font-size: 20px !important;
+	}
+	.navbar * {
+    font-size: 0.8em;
+}
+}
 .footer {
     padding-top: 2em;
 }
-#logo {
-    font-family: 'Anton', sans-serif;
-    text-shadow: 0 0 5px black;
-    font-size: 3em;
-    width: 100px;
-    margin-top: 0em;
-    margin-left: 2em;
-}
 .navbar:hover {
-    margin-bottom: 0px;
+    margin-bottom: 0;
+}
+button{
+    color: white;
+}
+.footer-distributed{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 30px 50px;
+	margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #5383d3;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
 }

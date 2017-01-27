@@ -1,4 +1,4 @@
-<span id="show-rating" *ngIf="productService.product[0].AvgRating != 0">
-    <span class="back-color-3 glyphicon glyphicon-star"><p class="rating-result">{{ productService.product[0].AvgRating | number:'1.1-1' }}</p></span>
-    <p class="rating-sub"> from {{ productService.product[0].RatingVotes }} people</p>
+<span id="show-rating" *ngIf="valueService.activeProduct.value.AvgRating != 0">
+    <span class="back-color-3 glyphicon glyphicon-star"><p class="rating-result">{{ valueService.activeProduct.value.AvgRating | number:'1.1-1' }}</p></span>
+    <p class="rating-sub"> from {{ valueService.activeProduct.value.RatingVotes }} people</p>
 </span>

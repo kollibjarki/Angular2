@@ -1,0 +1,24 @@
+<div class="block">
+    <div class="centered">
+        <div class="child">
+            <app-logo style="font-size: 30px;"></app-logo>
+        </div>
+        <div class="child">
+            <app-info-menu></app-info-menu>
+        </div>
+        <div *ngIf="valueService.isAdminLoggedIn.value == true">
+            <div class="child">
+                <button md-menu-item (click)="openNewProduct()">Add Product</button>
+            </div>
+            <div class="child">
+                <button md-menu-item (click)="openNewEmployee()">Add Staff</button>
+            </div>
+            <div class="child">
+                <button md-menu-item (click)="getDisabledProducts()">Disabled Products</button>
+            </div>
+        </div>
+        <div class="child" *ngIf="valueService.numberOfOrders > 0">
+            <button md-menu-item routerLink="/orders">Check Orders Status</button>
+        </div> 
+    </div>
+</div>

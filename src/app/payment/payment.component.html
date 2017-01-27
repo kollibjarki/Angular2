@@ -1,0 +1,33 @@
+
+<div class="container-fluid breadcrumbBox text-center">
+			<ol class="breadcrumb">
+				<li><a>Review Basket</a></li>
+				<li class="active"><a>Payment</a></li>
+				<li><a>Order</a></li>
+			</ol>
+		</div>	
+		<div class="container text-center">
+			<div class="col-md-5 col-sm-12">
+				<div class="bigcart"></div>
+				<h1>Payment Information</h1>
+			</div>
+			<div class="col-md-12 col-sm-12 text-left">
+				<ul>
+					<li class="row list-inline columnCaptions">
+						<span>Name</span>
+						<span>Card Number</span>
+						<span>CVS</span>
+					</li>
+					<li class="row">
+						<span class="quantity">Name Here</span>
+						<span class="itemName">4515-4512-8598-8124</span>
+						<span class="price">354</span>
+					</li>
+					<li class="row totals"> 
+						<span class="itemName">Total:</span>
+						<span class="price">{{ basketService.basketTotalPrice | number:'1.0-0' }} kr.</span>
+						<span class="order" (click)="placeOrder()" routerLink="/orders"><a class="text-center">Continue</a></span>
+					</li>
+				</ul>
+			</div>
+		</div>

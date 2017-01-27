@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
-import { BasketService } from '../basket.service';
-import { AccountService } from '../account.service';
+import { ProductService } from '../shared/product.service';
+import { BasketService } from '../shared/basket.service';
+import { ValueService } from '../shared/value.service';
+import { AccountService } from '../shared/account.service';
+import { GlobalService } from '../shared/global.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,22 +13,34 @@ import { AccountService } from '../account.service';
 export class ProductDetailComponent implements OnInit {
 
   constructor(
+        private globalService: GlobalService,
         private productService : ProductService,
-        private basketService : BasketService,
-        private accountService : AccountService
+        private valueService : ValueService,
+        private basketService : BasketService
   ) { }
 
-
+  Quantity: number = 1;
   ngOnInit() {
+    if(this.valueService.activeProduct.value == undefined){
+      this.globalService.redirect();
+    }
   }
 
   addToCart(product, productId, quantity){
-    console.log(quantity); // needs work
-    this.basketService.addToBasket(product, productId);
+    this.basketService.addToBasket(product, productId, quantity);
   }
 
-  back(): void {
-      this.productService.goBack();
+  editProduct(Id: number){
+    this.productService.editProduct(Id);
   }
+
+  goBack(CategoryName){
+    if(this.valueService.isAdminLoggedIn.value == false){
+      this.globalService.goBack();
+    }else{
+      this.productService.backToCategoryGrid(CategoryName);
+    }    
+  }
+
 
 }

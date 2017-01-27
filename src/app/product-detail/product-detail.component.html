@@ -1,41 +1,44 @@
-<div class="row">
-    <app-categories-small></app-categories-small>
-</div>
 <div class="container">
     <div class="row list-group">
         <div class="item col-xs-12">
-            <div *ngIf="productService.product">
+            <div *ngIf="valueService.activeProduct.value">
                 <div class="col-md-6 col-xs-12">
-                    <img class="detailImg" src="{{ productService.product[0].ImageUrl }}" alt="" />
+                    <img class="detailImg" src="{{ valueService.activeProduct.value.ImageUrl }}"  alt="image-not-found" />
                 <app-rating-show></app-rating-show>      
                 </div>
                 <div class="col-md-6 col-xs-12 caption">
-                    <a (click)="back()" data-toggle="tooltip" title="Go Back"><span class="front-color-3 glyphicon glyphicon-chevron-left"></span></a>
+                    <a (click)="goBack(valueService.activeProduct.value.CategoryName)" data-toggle="tooltip" title="Go Back"><span class="glyphicon glyphicon-chevron-left"></span></a>
                     <h1 class="product-name">
-                        {{ productService.product[0].Name}}</h1>
+                        {{ valueService.activeProduct.value.Name}}</h1>
                     <div class="row">
                         <div class="col-xs-12 col-md-5">
-                            <h2 class="discount" *ngIf="productService.product[0].Discount > 0"> -{{ productService.product[0].Discount }}% </h2>
-                                <p class="lead">
-                                {{ productService.product[0].Price | number:'1.0-0' }}
-                                <span *ngIf="productService.product[0].Discount > 0"><span class="old-price">_____</span>
-                                {{ productService.product[0].DiscPrice | number:'1.0-0' }}</span> kr.</p><br />
+                            <h2 class="discount" *ngIf="valueService.activeProduct.value.Discount > 0"> -{{ valueService.activeProduct.value.Discount }}% </h2>
+                            <p class="lead">
+                            {{ valueService.activeProduct.value.Price | number:'1.0-0' }}
+                            <span *ngIf="valueService.activeProduct.value.Discount > 0"><span class="old-price">_____</span>
+                            {{ valueService.activeProduct.value.DiscPrice | number:'1.0-0' }}</span> kr.</p><br />
                         </div>
                         <div class="clearfix">
                         </div>
                         <div class="col-xs-12 col-md-12">
-                            <p class="description">{{ productService.product[0].Description}}</p>                            
+                            <p class="description">{{ valueService.activeProduct.value.Description}}</p>                            
                         </div>
                         <div class="clearfix">
                         </div>
-                        <div class="wrap">
+                        <div *ngIf="valueService.isAdminLoggedIn.value != true" class="wrap">
                             <div class="col-xs-12 col-md-6">
-                                <input class="addNumber" type="number" [(ngModel)]="productService.product[0].Quantity" step="1" value="1" min="1" max="99">
-                                <a (click)="addToCart(productService.product[0], productService.product[0].Id, productService.product[0].Quantity)" class="btn back-color-3">Add to cart</a>
+                                <md-slider type="number" [(ngModel)]="Quantity" step="1" min="1" max="50"></md-slider>
+                                <input class="addNumber" type="number" [(ngModel)]="Quantity" step="1" min="1" max="50">
+                                <button class="btn btn-info" (click)="addToCart(valueService.activeProduct.value, valueService.activeProduct.value.Id, Quantity)">Add to cart</button>                                
                             </div>
                             <div id="rating" class="col-xs-12 col-md-6">
                                 <h6 data-toggle="tooltip" title="Click On Stars To Rate" >rate me!</h6>
                                 <app-rate-product></app-rate-product>
+                            </div>
+                        </div>
+                        <div *ngIf="valueService.isAdminLoggedIn.value == true" class="wrap">
+                            <div class="col-xs-12 col-md-6">
+                                <button class="btn btn-info" (click)="editProduct(valueService.activeProduct.value.Id)">Edit Product</button>
                             </div>
                         </div>
                         <div class="clearfix"></div>                        

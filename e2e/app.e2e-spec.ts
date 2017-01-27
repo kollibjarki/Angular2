@@ -1,10 +1,10 @@
-import { RetailAngularPage } from './app.po';
+import { NewAngularPage } from './app.po';
 
-describe('retail-angular App', function() {
-  let page: RetailAngularPage;
+describe('new-angular App', function() {
+  let page: NewAngularPage;
 
   beforeEach(() => {
-    page = new RetailAngularPage();
+    page = new NewAngularPage();
   });
 
   it('should display message saying app works', () => {

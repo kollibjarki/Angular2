@@ -1,0 +1,23 @@
+.glyphicon {
+    font-size: 3em;
+}
+
+#price {
+    width: 6em;
+}
+.detailImg{
+    width: 1080px;
+    height: 400px;
+    padding-bottom: 10px;
+}
+#StaffD{
+
+    padding-bottom: 300px
+}
+.BF{
+    float: right;
+}
+.md{
+   width: auto;
+   
+}

@@ -1,0 +1,36 @@
+.fam {
+    padding: 2em;
+    color:white;
+    font-size: xx-large;
+    text-align: center;
+}
+.mother {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-end; 
+    height: auto;
+}
+.child {
+    width: 310px;
+    height: 400px;
+    overflow: hidden;
+    margin: auto;
+    align-self: flex-start;
+}
+.child:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+.child > img {
+    width: 300px;
+    height: 300px;
+}
+.heading{
+    font-family: 'Merriweather', serif;
+    margin-top: 0;
+    color: black;
+}
+.heading:hover{
+    cursor: default;
+}

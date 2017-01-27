@@ -4,6 +4,8 @@
     border-radius: 15px;
     font-size: 4em;
     font-weight: bold;
+    color: white;
+    background: linear-gradient(to right, rgba(255,183,81, 0.6),rgba(255,183,81, 1));
 }
 .rating-result{
     margin-left: -0.2em;
@@ -26,4 +28,7 @@
     z-index: 5;
     opacity: 0.9;
     transform: rotate(-15deg);
+}
+#show-rating:hover{
+    cursor: default;
 }

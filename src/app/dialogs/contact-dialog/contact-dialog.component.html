@@ -1,0 +1,4 @@
+<md-input-container>
+  <textarea class="message" #message md-input placeholder="Write Message" (keyup.enter)="sendMessage(message)"></textarea>
+</md-input-container><br />
+<button class="hud" (click)="sendMessage(message)" md-button>Send Message</button>

@@ -1,0 +1,29 @@
+.searchDiv * {
+    font-family: 'Merriweather', serif;
+}
+.searchDiv:hover *{
+    cursor: pointer;    
+}
+.searchDiv {
+    background-color: white;
+    height: 38px;
+    width: 200px;
+    position: fixed;
+    z-index: 2;
+    min-width: 40px;
+    border-radius: 5px;
+    right: 0;
+    margin: -55px 40px -25px auto;
+}
+input{
+    width: 90%;
+}
+span:hover {
+    background-color: linen;
+    cursor: pointer;
+    font-weight: bold;
+}
+ul{
+    list-style: none;
+    background-color: white;
+}

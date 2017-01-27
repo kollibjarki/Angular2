@@ -1,0 +1,3 @@
+<div *ngIf="valueService.numberOfItemsInBasket != 0" class="smallBasketDiv navbar-fixed-bottom">
+  <button routerLink="/basket" md-button class="hud"><h5>Basket</h5>{{ valueService.numberOfItemsInBasket }}</button>
+</div>

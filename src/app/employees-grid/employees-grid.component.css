@@ -1,0 +1,38 @@
+.fam {
+    padding: 2em;
+    color:white;
+    font-size: xx-large;
+    text-align: center;
+}
+.mother {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-end; 
+    height: auto;
+}
+.child {
+    width: 310px;
+    height: 400px;
+    overflow: hidden;
+    margin: auto;
+    align-self: flex-start;
+}
+.child:hover{
+    opacity: 0.9;
+}
+.child > img {
+    height: 200px;
+    width: auto;
+}
+.heading{
+    font-family: 'Merriweather', serif;
+    margin-top: 0;
+    color: black;
+}
+.jobTitle{
+    font-size: 22px;
+    font-family: 'Merriweather', serif;
+    top: 0;
+    color: black;
+}

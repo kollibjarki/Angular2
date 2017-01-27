@@ -5,6 +5,11 @@
     max-width: 100%;
     margin-top: 3em;
 }
+@media (max-width: 1100px){
+    .detailImg{
+        width: 80%;
+    }
+}
 .product-name{
     font-weight: bold;
 }

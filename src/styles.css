@@ -1,48 +1,35 @@
-@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
-.front-color-2 {
-    color: rgba(255,253,251, 1) !important;
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+div {
+    background-color: transparent;
 }
-.back-color-3 {
-    color: white;
-    background: linear-gradient(to right, rgba(255,183,81, 0.6),rgba(255,183,81, 1));
+html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    margin-bottom: 50px;
+    padding:0;
+    overflow: hidden;
 }
-.front-color-3 {
-    color: rgba(255,183,81, 1) !important;
+body:hover{
+    cursor: default;
 }
-.loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
+.hud{
+  font-weight: bold;
+  background-color: powderblue;
 }
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.hudd{
+  color: powderblue;
 }
-body * {
-    margin-top: 0;
-    padding: 0;
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Merriweather', serif;
 }
-body {
-    margin-top: 75px;
-    overflow-x: hidden;
-    height: 100%;
-}
-@media (max-width:770px){
-    app-navbar {
+@media (max-width:790px){
+    app-categories-small {
         display: none;
     }
 }
-@media (min-width:760px){
-    app-navburger {
+@media (min-width:790px){
+    app-categories-small-burger {
         display: none;
-    }
-}
-@media (min-width:760px){
-    app-product-search-bar {
-        left: auto;
-        right: 0;
     }
 }

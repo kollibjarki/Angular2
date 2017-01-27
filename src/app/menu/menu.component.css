@@ -1,0 +1,16 @@
+.block:before {
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;
+  margin-right: -0.25em;
+ }
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+ }
+
+.child {
+  width: fit-content;
+  padding: 10px 15px;
+  margin:30px 0;
+}
