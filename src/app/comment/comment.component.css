@@ -1,0 +1,17 @@
+.comments-div{
+    margin-bottom: 50px;
+}
+.subcomment{
+    width: 90%;
+}
+.add{
+    font-size: 0.5em;
+    width: 100%;
+}
+.badge{
+    background-color: dodgerblue;
+}
+.glyphicon-remove{
+    color: red;
+    font-size: 0.5em;
+}

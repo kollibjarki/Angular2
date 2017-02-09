@@ -1,8 +1,9 @@
 .fam {
-    padding: 2em;
-    color:white;
-    font-size: xx-large;
+    padding: 3em;
     text-align: center;
+}
+.heading{
+    font-family: 'Merriweather', serif;
 }
 .mother {
     display: flex;
@@ -12,11 +13,16 @@
     height: auto;
 }
 .child {
-    width: 310px;
-    height: 400px;
+    padding: 3em;
+    margin: 0 40px;
     overflow: hidden;
-    margin: auto;
     align-self: flex-start;
+    transition: margin 300ms;
+}
+@media(min-width: 933px){ /* úr polaroid í röð*/
+    .child{
+        margin-bottom: 40px;           
+    }
 }
 .child:hover{
     opacity: 0.9;
@@ -25,12 +31,4 @@
 .child > img {
     width: 300px;
     height: 300px;
-}
-.heading{
-    font-family: 'Merriweather', serif;
-    margin-top: 0;
-    color: black;
-}
-.heading:hover{
-    cursor: default;
 }

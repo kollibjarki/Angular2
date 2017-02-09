@@ -1,0 +1,21 @@
+.glyphicon{
+    font-size: 3em;
+}
+.actions{
+    clear: right;
+}
+.noticable{
+    color: red;
+}
+#small-comment{
+    display: none;
+}
+@media(max-width: 768px){
+    #big-comment{
+        visibility: hidden;
+        display: none;
+    }
+    #small-comment{
+        display: inline-block;
+    }
+}

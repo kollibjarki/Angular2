@@ -20,6 +20,14 @@ export class OrdersComponent implements OnInit {
     if(this.valueService.isAdminLoggedIn.value == true){
       this.globalService.redirect();
     }
+    if(this.valueService.isUserLoggedIn.value == false){
+      if(this.valueService.activeProduct.value == null){
+        this.globalService.redirect();
+      }else{
+        this.productService.getProductList(this.valueService.activeProduct.value.CategoryName);
+        this.globalService.toCategory();
+      }
+    }
   }
 
   productDetail(Id: number){

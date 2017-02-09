@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { CategoriesGridComponent } from '../categories-grid/categories-grid.component';
 import { ProductGridComponent } from '../product-grid/product-grid.component';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
+
 import { BasketComponent } from '../basket/basket.component';
 import { OrdersComponent } from '../orders/orders.component';
 import { PaymentComponent } from '../payment/payment.component';
@@ -18,7 +20,7 @@ const routes: Routes = [
     { path: '', redirectTo: '/store', pathMatch: 'full' },
     { path: 'store', component: CategoriesGridComponent },
     { path: 'selection/:category', component: ProductGridComponent },
-    { path: 'store/item/:id', component: ProductDetailComponent },
+    { path: 'store/item/:id', component: ProductDetailsComponent },
     { path: 'item/edit/:id', component: ProductEditComponent },
     { path: 'basket', component: BasketComponent },
     { path: 'payment', component: PaymentComponent },

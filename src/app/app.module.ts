@@ -34,6 +34,7 @@ import { CategoriesSmallComponent } from './categories-small/categories-small.co
 import { CategoriesSmallBurgerComponent } from './categories-small-burger/categories-small-burger.component';
 import { ProductGridComponent } from './product-grid/product-grid.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CommentsComponent } from './comments/comments.component';
 import { RateProductComponent } from './rate-product/rate-product.component';
 import { RatingShowComponent } from './rating-show/rating-show.component';
@@ -58,6 +59,7 @@ import { DisabledProductDialogComponent } from './dialogs/disabled-product-dialo
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { ItemGridComponent } from './item-grid/item-grid.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,7 @@ import { ItemGridComponent } from './item-grid/item-grid.component';
     //Products
     ProductGridComponent,
     ProductDetailComponent,
+    ProductDetailsComponent,
     CommentsComponent,
     RateProductComponent,
     RatingShowComponent,
@@ -101,7 +104,8 @@ import { ItemGridComponent } from './item-grid/item-grid.component';
     NewEmployeeDialogComponent,
     AboutDialogComponent,
     ItemGridComponent,
-    DisabledProductDialogComponent
+    DisabledProductDialogComponent,
+    CommentComponent,
     
   ],
   imports: [

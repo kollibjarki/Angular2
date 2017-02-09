@@ -1,0 +1,54 @@
+<md-card class="no-style col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8" *ngIf="valueService.activeProduct.value">
+  <div class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6">
+    <md-card>
+      <md-card-content>
+        <img md-card-image src="{{ valueService.activeProduct.value.ImageUrl }}">
+      <md-card-title>
+        <app-rating-show></app-rating-show>
+      </md-card-title>
+      </md-card-content>
+    </md-card>
+    <div id="big-comment">
+      <app-comment></app-comment>
+    </div>
+  </div>
+  <div class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6">
+    <md-card class="no-style">
+      <md-card-actions>
+        <span (click)="goBack(valueService.activeProduct.value.CategoryName)" class="hudd glyphicon glyphicon-chevron-left"></span>
+      </md-card-actions>
+      <md-card-title><h1>{{ valueService.activeProduct.value.Name}}</h1></md-card-title>
+      <md-card-content>{{ valueService.activeProduct.value.Description}}</md-card-content>
+      <md-card-subtitle>
+        <div class="col-xs-12 col-md-5">
+          <h2 class="noticable" *ngIf="valueService.activeProduct.value.Discount > 0"> -{{ valueService.activeProduct.value.Discount }}% </h2>
+          <del *ngIf="valueService.activeProduct.value.Price != valueService.activeProduct.value.DiscPrice">{{ valueService.activeProduct.value.Price | number:'1.0-0' }}</del>
+          <b>{{ valueService.activeProduct.value.DiscPrice | number:'1.0-0' }}</b>
+           kr.
+        </div>
+      </md-card-subtitle>
+    </md-card>
+  </div>
+  <div class="actions col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6">
+    <md-card class="no-style">
+      <div class="container" *ngIf="valueService.isAdminLoggedIn.value != true">
+        <md-card-actions>
+          <md-slider type="number" [(ngModel)]="Quantity" step="1" min="1" max="50"></md-slider>
+          <input class="addNumber" type="number" [(ngModel)]="Quantity" step="1" min="1" max="50">
+          <button class="btn btn-info" (click)="addToCart(valueService.activeProduct.value, valueService.activeProduct.value.Id, Quantity)">Add to cart</button>
+        </md-card-actions>
+        <md-card-content>
+          <app-rate-product></app-rate-product>
+        </md-card-content>
+      </div>
+      <div *ngIf="valueService.isAdminLoggedIn.value == true">
+        <md-card-actions>
+          <button class="btn btn-info" (click)="editProduct(valueService.activeProduct.value.Id)">Edit Product</button>
+        </md-card-actions>
+      </div>
+    </md-card>
+    <div id="small-comment">
+      <app-comment></app-comment>
+    </div>
+  </div>
+</md-card>

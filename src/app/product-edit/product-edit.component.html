@@ -14,8 +14,8 @@
                             <input class="product-name" md-input placeholder="Name" value="{{ product.Name}}" #name type="text">
                           </md-input-container>
                           <h4>Category :</h4>
-                          <select class="form-control" #categoryId [(ngModel)]="product.CategoryId">
-                            <option id="cat" *ngFor="let category of productService.categories" [value]="category.Id">
+                          <select class="form-control" #categoryId [(ngModel)]="valueService.activeProduct.value.CategoryId">
+                            <option id="cat" *ngFor="let category of valueService.categories" [value]="category.Id">
                               {{category.Name}}
                             </option>
                           </select>

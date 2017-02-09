@@ -1,4 +1,7 @@
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+.no-style { /* md-card */
+    box-shadow: none;
+}
 div {
     background-color: transparent;
 }
@@ -6,7 +9,7 @@ html, body {
     height:100%;
     width:100%;
     margin:0;
-    margin-bottom: 50px;
+    margin-bottom: 120px;
     padding:0;
     overflow: hidden;
 }
@@ -20,15 +23,15 @@ body:hover{
 .hudd{
   color: powderblue;
 }
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5{
     font-family: 'Merriweather', serif;
 }
-@media (max-width:790px){
+@media (max-width: 560px){
     app-categories-small {
         display: none;
     }
 }
-@media (min-width:790px){
+@media (min-width: 560px){
     app-categories-small-burger {
         display: none;
     }

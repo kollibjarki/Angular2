@@ -1,7 +1,5 @@
 .fam {
-    padding: 2em;
-    color:white;
-    font-size: xx-large;
+    padding: 3em;
     text-align: center;
 }
 .mother {
@@ -12,29 +10,27 @@
     height: auto;
 }
 .child {
-    width: 380px;
-    height: auto;
+    padding: 3em;
+    margin: 0 40px;
+    margin-bottom: 40px;               
     overflow: hidden;
-    margin: 20px auto;
     align-self: flex-start;
+    transition: margin 300ms;
 }
-.child:hover {
+.child:hover{
     opacity: 0.9;
     cursor: pointer;
 }
 .child > img {
-    width: 300px;
-    height: auto;
-    vertical-align: top;
+    width: auto;
+    height: 300px;
 }
 .noticeable{
-    font-size: 20px;
-    margin: 0 0;
-    transform: rotate(5deg);
     color: red;
 }
 .heading{
     font-size: 35px;
+    font-family: 'Merriweather', serif;    
     margin: 0 0;
     color: grey;
 }

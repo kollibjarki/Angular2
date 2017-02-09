@@ -1,4 +1,6 @@
-
+.about{
+  overflow-x: hidden;
+}
 .section-breadcrumbs {
   background: #222;
   background: rgba(34, 34, 34, 0.8);

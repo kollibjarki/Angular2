@@ -2,17 +2,20 @@
 <app-categories-small></app-categories-small>
 <div class="fam">
     <div class="mother">
-        <div class="child" *ngFor="let category of valueService.categories">
-            <img (click)="goToCategory(category.Name)" class="img-responsive" src="{{ category.ImageUrl}}">
-            <p class="heading">{{ category.Name | uppercase }}</p>
-        </div>
-        <div class="child">
-            <img (click)="goToOnSale()" class="img-responsive" src="http://cdn.picturecorrect.com/wp-content/uploads/2013/06/concert-photography-21.jpg">
-            <p class="heading">On Sale</p>
-        </div>
-        <div class="child">
-            <img (click)="goToPopular()" class="img-responsive" src="https://www.teenageengineering.com/_img/546e797ecb05790200e70bab_512.jpg">
-            <p class="heading">Popular</p>
-        </div>
+        <md-card class="child" *ngFor="let category of valueService.categories" (click)="goToCategory(category.Name)">
+            <md-card-title><b class="heading">{{ category.Name | uppercase }}</b></md-card-title>
+            <img md-card-image src="{{ category.ImageUrl}}">
+            <md-card-content>{{ category.About }}</md-card-content>
+        </md-card>
+        <md-card class="child" (click)="goToOnSale()">
+            <md-card-title><b class="heading">On Sale</b></md-card-title>
+            <img md-card-image  src="http://cdn.picturecorrect.com/wp-content/uploads/2013/06/concert-photography-21.jpg">
+            <md-card-content>Special Offers</md-card-content>
+        </md-card>
+        <md-card class="child" (click)="goToPopular()">
+            <md-card-title><b class="heading">Popular</b></md-card-title>
+            <img md-card-image src="https://www.teenageengineering.com/_img/546e797ecb05790200e70bab_512.jpg">
+            <md-card-content>Most Viewed</md-card-content>
+        </md-card>
     </div>
 </div>

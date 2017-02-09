@@ -30,8 +30,10 @@ export class AdminService {
     this.http.post(_url, body, options)
       .subscribe(data => {
           this.valueService.dialogMessage = "Product Added";
+          this.globalService.getSearchList();          
           this.globalService.openDynamic();
-          this.globalService.closeDialogTimeout();          
+          this.globalService.closeDialogTimeout();
+          this.productService.getProductList(Category);         
       }, error => {
         console.log(JSON.stringify(error.json()));
       });
@@ -93,6 +95,7 @@ export class AdminService {
   }
   disableSuccess(){
     this.valueService.dialogMessage = "Product InActive";
+    this.globalService.getSearchList();
     this.globalService.openDynamic();
     this.productService.getProductList(this.valueService.activeProduct.value.CategoryName);
     this.globalService.toCategory();
@@ -112,6 +115,8 @@ export class AdminService {
   }
 
   enableSuccess(){
+    this.globalService.getSearchList();
+    this.productService.getProductList(this.valueService.activeProduct.value.CategoryName);    
     this.getAllInActive();
     this.valueService.dialogMessage = "Product Active";
     this.globalService.openDynamic();

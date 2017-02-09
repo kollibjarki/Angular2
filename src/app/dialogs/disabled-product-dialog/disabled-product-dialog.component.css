@@ -1,5 +1,6 @@
-#main{
-    overflow-x: hidden;
+.product{
+  width: fit-content;
+  height: fit-content;
 }
 .title{
   width: fit-content;
@@ -58,7 +59,7 @@
   text-align: center;
 }
 @media (max-width: 500px) {
-  .shopping-cart .image {
+  img {
     display: none;
   }
   .cart-item-title {

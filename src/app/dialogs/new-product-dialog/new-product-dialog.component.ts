@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../shared/product.service';
 import { AdminService } from '../../shared/admin.service';
+import { ValueService } from '../../shared/value.service';
 import { Product } from '../../shared/product';
 
 @Component({
@@ -12,6 +13,7 @@ export class NewProductDialogComponent implements OnInit {
 
   constructor(
     private adminService : AdminService,
+    private valueService : ValueService,
     private productService : ProductService
   ) { }
 

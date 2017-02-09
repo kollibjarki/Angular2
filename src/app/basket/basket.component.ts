@@ -29,6 +29,10 @@ export class BasketComponent implements OnInit {
   productDetail(productId: number){
     this.productService.getProduct(productId);
   }
+
+  checkOut(){
+    this.ordersService.placeOrder(this.valueService.user.userName);
+  }
   
   addToBasket(product, productId){
     let qty = 1;

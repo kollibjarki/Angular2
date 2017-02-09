@@ -59,7 +59,7 @@ export class GlobalService {
       this.closeDialogTimeout();
     }
     if(testMessage == ""){
-      this.valueService.dialogMessage = "Thanks for your silence";      
+      this.valueService.dialogMessage = "Nothing to send..";      
       this.dialog.open(DynamicDialogComponent);
       this.closeDialogTimeout();      
     }

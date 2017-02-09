@@ -1,0 +1,46 @@
+<div class="comments-div">
+  <md-card>
+    <md-card-title>
+      <md-input-container class="add">
+          <input md-input placeholder="Add a comment" (keyup.enter)="addComment(comment)"  #comment type="text">
+      </md-input-container>
+    </md-card-title>
+    <md-card-content>
+    </md-card-content>
+  </md-card>
+  <md-card *ngFor="let comment of commentService.commentList">
+    <md-card-title>
+      <span *ngIf="valueService.user.userName == comment.UserId || valueService.isAdminLoggedIn.value == true" (click)="deleteComment(comment.Id)" class="pull-right glyphicon glyphicon-remove"></span>
+      <h6 *ngIf="valueService.user.userName == comment.UserId"><b>You </b><i>commented.</i></h6>
+      <h6 *ngIf="valueService.user.userName != comment.UserId"><b>{{ comment.UserId }} </b><i>commented.</i></h6>
+      <div class="pull-right">
+        <span *ngIf="comment.NumberOfLikes > 0" class="badge">{{ comment.NumberOfLikes }}</span>
+        <a  (click)=likeComment(comment.Id) class="btn btn-default"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+      </div>
+    </md-card-title>
+    <md-card-content>
+      {{ comment.Comment }}
+    </md-card-content>
+    <md-card-subtitle>
+      {{ comment.DateSubmitted | date:'fullDate'}}
+    </md-card-subtitle>
+    <md-card-title>
+      <md-input-container class="add">  <!-- Add Sub Comment -->
+          <input md-input placeholder="Reply" (keyup.enter)="replyComment(comment.Id, SubComment)" #SubComment type="text">
+      </md-input-container>
+    </md-card-title>
+    <md-card class="subcomment" *ngFor="let subcomment of comment.SubCom">
+      <md-card-title>
+        <span *ngIf="valueService.user.userName == subcomment.UserId || valueService.isAdminLoggedIn.value == true" (click)="deleteSubComment(subcomment.Id)" class="pull-right glyphicon glyphicon-remove"></span>
+        <h6 *ngIf="valueService.user.userName ==  subcomment.UserId"><b>You </b><i>replied.</i></h6>
+        <h6 *ngIf="valueService.user.userName != subcomment.UserId"><b>{{ subcomment.UserId }} </b><i>replied.</i></h6>
+      </md-card-title>
+      <md-card-content>
+        {{ subcomment.Comment }}
+      </md-card-content>
+      <md-card-subtitle>
+        {{ subcomment.DateSubmitted | date:'fullDate'}}
+      </md-card-subtitle>
+    </md-card>
+  </md-card>
+</div>

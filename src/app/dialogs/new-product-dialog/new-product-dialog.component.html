@@ -13,7 +13,7 @@
                     </md-input-container>
                     <h4>Category :</h4>
                     <select id="cat" class="form-control" #category>
-                        <option id="cat" *ngFor="let category of productService.categories" [value]="category.Name">
+                        <option id="cat" *ngFor="let category of valueService.categories" [value]="category.Name">
                           {{category.Name}}
                         </option>
                     </select>
